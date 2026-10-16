@@ -3,7 +3,7 @@
 
 {%- liquid
     assign font_medium = section.settings.font | font_modify: 'weight', '500'
--%} }
+-%} 
 
 <style>
     {{ section.settings.font | font_face: font_display: 'swap' }}
@@ -33,7 +33,49 @@
 
 
 
-
+{% schema %}
+{
+    "name": "EE Banner",
+    "tag": "div",
+    "class": "ee-banner-section",
+    "settings": [
+        {
+            "type": "font_picker",
+            "id": "font",
+            "label": "Font",
+            "default": "jost_n4"
+        },
+        {
+            "type": "header",
+            "content": "Top bar"
+        },
+        {
+            "type": "text",
+            "id": "brand",
+            "label": "Brand name",
+            "default": "TISSO VISON"
+        },
+        {
+            "type": "text",
+            "id": "tagline",
+            "label": "Tagline",
+            "default": "Find the ideal gift for your loved ones."
+        },
+        {
+            "type": "text",
+            "id": "top_button_label",
+            "label": "Button label",
+            "default": "CHOOSE GIFT"
+        },
+        {
+            "type": "url",
+            "id": "top_button_link",
+            "label": "Button link"
+        }
+    ],
+    "presets": [{"name": "EE Banner"}]
+}
+{% endschema %}
 
 
 

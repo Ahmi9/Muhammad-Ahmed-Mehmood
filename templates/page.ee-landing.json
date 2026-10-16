@@ -1,0 +1,9 @@
+{
+    "sections": {
+        "banner": {
+            "type": "ee-banner",
+            "settings": {}
+        }
+    },
+    "order": ["banner"]
+}

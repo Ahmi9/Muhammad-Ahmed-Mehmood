@@ -9,6 +9,24 @@
  */
 {
   "sections": {
+    "ee_banner_azMGXH": {
+      "type": "ee-banner",
+      "name": "EE Banner",
+      "settings": {
+        "font": "jost_n4",
+        "brand": "TISSO VISON",
+        "tagline": "Find the ideal gift for your loved ones.",
+        "top_button_label": "CHOOSE GIFT",
+        "top_button_link": "",
+        "heading": "The Gift Guide",
+        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "button_label": "SHOP NOW",
+        "text_mobile": "<p>Discover Joy: Your Ultimate Holiday Gift Destination</p>",
+        "button_link": "",
+        "strip_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+        "strip_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -39,6 +57,7 @@
     }
   },
   "order": [
+    "ee_banner_azMGXH",
     "featured_collection"
   ]
 }

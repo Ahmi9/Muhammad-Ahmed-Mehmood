@@ -62,7 +62,13 @@
         "brand": "TISSO VISON",
         "tagline": "Find the ideal gift for your loved ones.",
         "top_button_label": "CHOOSE GIFT",
-        "top_button_link": ""
+        "top_button_link": "",
+        "background": "shopify://shop_images/Group_1000008197.png",
+        "heading": "The Gift Guide",
+        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "button_label": "SHOP NOW",
+        "button_link": "",
+        "strip_text": "SUSTAINABLE, ETHICALLY MADEE CLOTHES IN SIZES XXS TO 6XL"
       }
     }
   },

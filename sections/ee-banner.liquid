@@ -1,0 +1,66 @@
+{{ 'ee-banner.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ee-banner.js' | asset_url }}" defer></script>
+
+{%- liquid
+    assign font_medium = section.settings.font | font_modify: 'weight', '500'
+-%} }
+
+<style>
+    {{ section.settings.font | font_face: font_display: 'swap' }}
+    {{ font_medium | font_face: font_display: 'swap' }}
+    .ee-banner {
+        --ee-font: {{ section.settings.font.family }}, {{ section.settings.font.fallback_families }};
+    }
+</style>
+
+<section class="ee-banner">
+    <div class="ee-banner__topbar">
+        <span class="ee-banner__brand">{{ section.settings.brand }}</span>
+
+        <div class="ee-banner__menu" id="EeBannerMenu-{{ section.id }}">
+            <p class="ee-banner__tagline">{{ section.settings.tagline }}</p>
+            {%- if section.settings.top_button_label != blank -%}
+                <a href="{{ section.settings.top_button_link | default: '#' }}" class="ee-btn ee-btn--yellow">
+                    <span class="ee-btn__label">{{ section.settings.top_button_label }}</span>
+                    <!-- render arrow here -->
+                </a>
+            {%- endif -%}
+        </div>
+    </div>
+
+    
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

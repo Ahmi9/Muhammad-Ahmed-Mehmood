@@ -1,0 +1,317 @@
+.ee-banner {
+    --ee-black: #000;
+    --ee-yellow: #fff23f;
+    --ee-grey: #f4f4f4;
+    font-family: var(--ee-font);
+    color: var(--ee-black);
+}
+
+/* top bar*/
+.ee-banner__topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 64px;
+    padding: 10px 50px;
+    background: var(--ee-grey);
+}
+
+.ee-banner__brand {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+.ee-banner__tagline {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* hero */
+.ee-banner__hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 780px;
+    padding: 0 67px 50px;
+    overflow: hidden;
+    isolation: isolate;
+    background: #fff;
+}
+
+.ee-banner__picture {
+    display: contents;
+}
+
+.ee-banner__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.ee-banner__content {
+    max-width: 500px;
+    background: #fff;
+}
+
+.ee-banner__heading {
+    margin: 0 0 40px;
+    font-family: inherit;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.ee-banner__text {
+    margin-bottom: 50px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.ee-banner__text p {
+    margin: 0;
+}
+
+/* bottom strip */
+.ee-banner__strip {
+    margin: 0;
+    padding: 8px 16px;
+    background: var(--ee-grey);
+    font-size: 16px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* buttons */
+.ee-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    min-width: 207px;
+    height: 44px;
+    padding: 0 24px;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ee-btn-text);
+    background: var(--ee-btn-bg);
+    transition: color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.ee-btn--yellow {
+    --ee-btn-bg: var(--ee-yellow);
+    --ee-btn-text: var(--ee-black);
+    --ee-btn-hover-bg: var(--ee-black);
+    --ee-btn-hover-text: #fff;
+}
+
+.ee-btn--black {
+    --ee-btn-bg: var(--ee-black);
+    --ee-btn-text: #fff;
+    --ee-btn-hover-bg: var(--ee-yellow);
+    --ee-btn-hover-text: var(--ee-black);
+    min-width: 220px;
+    height: 50px;
+}
+
+/* buttons animation */
+.ee-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ee-btn-hover-bg);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.ee-btn:hover, .ee-btn:focus-visible {
+    color: var(--ee-btn-hover-text);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.ee-btn:hover::before, .ee-btn:focus-visible::before {
+    transform: scaleX(1);
+}
+
+/* arrow hides during the slide, then fades in from the left */
+.ee-btn:hover .ee-btn__arrow, .ee-btn:focus-visible .ee-btn__arrow {
+    animation: ee-arrow-in 0.3s ease 0.3s both;
+}
+
+@keyframes ee-arrow-in {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* respects users who turn off animations in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+    .ee-btn, .ee-btn::before, .ee-btn__arrow {
+        transition: none;
+        animation: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

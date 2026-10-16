@@ -208,7 +208,7 @@
         display: none;
     }
 
-    .ee-banner__topbar.isopen .ee-banner__icon-close {
+    .ee-banner__topbar.is-open .ee-banner__icon-close {
         display: block;
     }
 
@@ -218,17 +218,25 @@
     }
 
     .ee-banner__menu {
-        display: none;
-        width: 100%;
-        padding: 4px 0 16px;
-        text-align: center;
-    }
-
-    .ee-banner__topbar.is-open .ee-banner__menu {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 12px;
+        width: 100%;
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        text-align: center;
+        transition: max-height 0.35s ease, padding 0.35s ease, opacity 0.25s ease, visibility 0.35s;
+    }
+
+    .ee-banner__topbar.is-open .ee-banner__menu {
+        max-height: 200px;
+        padding: 4px 0 16px;
+        opacity: 1;
+        visibility: visible;
     }
 
     .ee-banner__tagline {

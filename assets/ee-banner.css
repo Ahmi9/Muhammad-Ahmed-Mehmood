@@ -1,7 +1,7 @@
 .ee-banner {
     --ee-black: #000;
     --ee-yellow: #fff23f;
-    --ee-grey: #f4f4f4;
+    --ee-grey: #f5f5f5;
     font-family: var(--ee-font);
     color: var(--ee-black);
 }
@@ -69,11 +69,11 @@
 }
 
 .ee-banner__heading {
-    margin: 0 0 40px;
+    margin: 0 0 50px;
     font-family: inherit;
-    font-size: 72px;
+    font-size: 70px;
     font-weight: 500;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .ee-banner__text {
@@ -94,7 +94,7 @@
 /* bottom strip */
 .ee-banner__strip {
     margin: 0;
-    padding: 8px 16px;
+    padding: 10px 50px;
     background: var(--ee-grey);
     font-size: 16px;
     text-align: center;
@@ -114,7 +114,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
+    gap: 18px;
     min-width: 207px;
     height: 44px;
     padding: 0 24px;
@@ -194,14 +194,14 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 0;
-        min-height: 50px;
+        min-height: 64px;
         padding: 0 16px;
     }
 
     .ee-banner__toggle {
         position: absolute;
-        top: 9px;
-        left: 12px;
+        top: 16px;
+        left: 9px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -223,8 +223,8 @@
     }
 
     .ee-banner__brand {
-        font-size: 20px;
-        line-height: 50px;
+        font-size: 24px;
+        line-height: 64px;
     }
 
     .ee-banner__menu {
@@ -258,7 +258,7 @@
         grid-template-areas: "heading" "text" "media";
         justify-items: center;
         min-height: 0;
-        padding: 32px 0 0;
+        padding: 49px 0 0;
         text-align: center;
     }
 
@@ -268,14 +268,14 @@
 
     .ee-banner__heading {
         grid-area: heading;
-        margin: 0 16px 12px;
-        font-size: 32px;
+        margin: 0 16px 24px;
+        font-size: 30px;
     }
 
     .ee-banner__text {
         grid-area: text;
-        margin: 0 24px 16px;
-        font-size: 14px;
+        margin: 0 18px 8px;
+        font-size: 16px;
     }
 
     /* swap to a shorter text when a mobile version is set */
@@ -298,13 +298,13 @@
     .ee-banner__content .ee-btn {
         grid-area: media;
         align-self: end;
-        min-width: 192px;
-        height: 44px;
-        margin-bottom: 40px;
+        min-width: 193px;
+        height: 45px;
+        margin-bottom: 35px;
     }
 
     .ee-banner__strip {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .ee-banner__strip-text--desktop {

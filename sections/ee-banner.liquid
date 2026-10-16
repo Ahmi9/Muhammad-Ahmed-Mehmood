@@ -47,7 +47,10 @@
         {%- endif -%}
         <div class="ee-banner__content">
             <h1 class="ee-banner__heading">{{ section.settings.heading }}</h1>
-            <div class="ee-banner__text">{{ section.settings.text }}</div>
+            <div class="ee-banner__text{%  if section.settings.text_mobile != blank %} ee-banner__text--desktop{% endif %}">{{ section.settings.text }}</div>
+            {%- if section.settings.text_mobile != blank -%}
+                <div class="ee-banner__text ee-banner__text--mobile">{{ section.settings.text_mobile }}</div>
+            {%- endif -%}
 
             {%- if section.settings.button_label != blank -%}
                 <a href="{{ section.settings.button_link | default: '#' }}" class="ee-btn ee-btn--black">
@@ -59,7 +62,12 @@
     </div>
 
     {%- if section.settings.strip_text != blank -%}
-      <p class="ee-banner__strip">{{ section.settings.strip_text }}</p>
+      <p class="ee-banner__strip">
+        <span class="ee-banner__strip-text{% if section.settings.strip_text_mobile != blank %} ee-banner__strip-text--desktop{% endif %}">{{ section.settings.strip_text }}</span>
+        {% if section.settings.strip_text_mobile !=blank %}
+            <span class="ee-banner__strip-text ee-banner__strip-text--mobile">{{ section.settings.strip_text_mobile }}</span>
+        {% endif %}
+      </p>
     {%- endif -%}
 
 </section>
@@ -137,6 +145,13 @@
         "default": "SHOP NOW"
         },
         {
+            "type": "richtext",
+            "id": "text_mobile",
+            "label": "Mobile text",
+            "info": "Optional. Shown below 750px instead of the text above.",
+            "default": "<p>Discover Joy: Your Ultimate Holiday Gift Destination</p>"
+        },
+        {
         "type": "url",
         "id": "button_link",
         "label": "Button link"
@@ -150,6 +165,13 @@
             "id": "strip_text",
             "label": "Strip text",
             "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+        },
+        {
+            "type": "text",
+            "id": "strip_text_mobile",
+            "label": "Mobile strip text",
+            "info": "Optional. Shown below 750px instead of the text above.",
+            "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
         }
     ],
     "presets": [{ "name": "EE Banner" }]

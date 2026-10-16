@@ -86,6 +86,11 @@
     margin: 0;
 }
 
+/* mobile only text stays hidden on desktop */
+.ee-banner__text--mobile {
+    display: none;
+}
+
 /* bottom strip */
 .ee-banner__strip {
     margin: 0;
@@ -94,6 +99,11 @@
     font-size: 16px;
     text-align: center;
     text-transform: uppercase;
+}
+
+/* mobile only text stays hidden on desktop*/
+.ee-banner__strip-text--mobile {
+    display: none;
 }
 
 /* buttons */
@@ -268,6 +278,15 @@
         font-size: 14px;
     }
 
+    /* swap to a shorter text when a mobile version is set */
+    .ee-banner__text--desktop {
+        display: none;
+    }
+
+    .ee-banner__text--mobile {
+        display: block;
+    }
+
     .ee-banner__bg {
         grid-area: media;
         position: static;
@@ -287,8 +306,22 @@
     .ee-banner__strip {
         font-size: 12px;
     }
+
+    .ee-banner__strip-text--desktop {
+        display: none;
+    }
+
+    .ee-banner__strip-text--mobile {
+        display: inline;
+    }
 }
 
+/* no slide for users who turn off animations */
+@media screen and (max-width: 749px) and (prefers-reduced-motion: reduce) {
+    .ee-banner__menu {
+        transition: none;
+    }
+}
 
 
 

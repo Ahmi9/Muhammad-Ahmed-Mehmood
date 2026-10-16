@@ -15,6 +15,14 @@
 
 <section class="ee-banner">
     <div class="ee-banner__topbar">
+        <button type="button" class="ee-banner__toggle" aria-expanded="false" aria-controls="EeBannerMenu-{{ section.id }}" aria-label="Open menu" data-ee-menu-toggle>
+            <svg class="ee-banner__icon-open" width="20" height="14" viewBox="0 0 20 14" aria-hidden="true">
+                <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+            <svg class="ee-banner__icon-close" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </button>
         <span class="ee-banner__brand">{{ section.settings.brand }}</span>
 
         <div class="ee-banner__menu" id="EeBannerMenu-{{ section.id }}">
@@ -31,6 +39,9 @@
     <div class="ee-banner__hero">
         {%- if section.settings.background != blank -%}
             <picture class="ee-banner__picture">
+                {%- if section.settings.background_mobile != blank -%}
+                    <source media="(max-width: 749px)" srcset="{{ section.settings.background_mobile | image_url: width: 750 }} 750w, {{ section.settings.background_mobile | image_url: width: 1100 }} 1100w" sizes="100vw">
+                {%- endif -%}
                 {{ section.settings.background | image_url: width: 2400 | image_tag: class: 'ee-banner__bg', loading: 'eager', sizes: '100vw', alt: ''}}
             </picture>
         {%- endif -%}
@@ -102,6 +113,12 @@
         "label": "Background image"
         },
         {
+        "type": "image_picker",
+        "id": "background_mobile",
+        "label": "Mobile background image",
+        "info": "Optional. Shown below 750px instead of the desktop image."
+        },
+        {
         "type": "text",
         "id": "heading",
         "label": "Heading",
@@ -132,7 +149,7 @@
             "type": "text",
             "id": "strip_text",
             "label": "Strip text",
-            "default": "SUSTAINABLE, ETHICALLY MADEE CLOTHES IN SIZES XXS TO 6XL"
+            "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
         }
     ],
     "presets": [{ "name": "EE Banner" }]

@@ -28,6 +28,16 @@
     font-size: 16px;
 }
 
+/* hamburger is only used on mobile */
+.ee-banner__toggle {
+    display: none;
+}
+
+/* on desktop the menu wrapper disappears, so tagline and button sit in the top bar row */
+.ee-banner__menu {
+    display: contents;
+}
+
 /* hero */
 .ee-banner__hero {
     position: relative;
@@ -167,8 +177,109 @@
     }
 }
 
+/* mobile (below 750px, same breakpoint as dawn) */
+@media screen and (max-width: 749px) {
+    .ee-banner__topbar {
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+        min-height: 50px;
+        padding: 0 16px;
+    }
 
+    .ee-banner__toggle {
+        position: absolute;
+        top: 9px;
+        left: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        cursor: pointer;
+    }
 
+    .ee-banner__icon-close, .ee-banner__topbar.is-open .ee-banner__icon-open {
+        display: none;
+    }
+
+    .ee-banner__topbar.isopen .ee-banner__icon-close {
+        display: block;
+    }
+
+    .ee-banner__brand {
+        font-size: 20px;
+        line-height: 50px;
+    }
+
+    .ee-banner__menu {
+        display: none;
+        width: 100%;
+        padding: 4px 0 16px;
+        text-align: center;
+    }
+
+    .ee-banner__topbar.is-open .ee-banner__menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .ee-banner__tagline {
+        font-size: 14px;
+    }
+
+    .ee-banner__hero {
+        display: grid;
+        grid-template-areas: "heading" "text" "media";
+        justify-items: center;
+        min-height: 0;
+        padding: 32px 0 0;
+        text-align: center;
+    }
+
+    .ee-banner__content {
+        display: contents;
+    }
+
+    .ee-banner__heading {
+        grid-area: heading;
+        margin: 0 16px 12px;
+        font-size: 32px;
+    }
+
+    .ee-banner__text {
+        grid-area: text;
+        margin: 0 24px 16px;
+        font-size: 14px;
+    }
+
+    .ee-banner__bg {
+        grid-area: media;
+        position: static;
+        width: 100%;
+        height: auto;
+        z-index: auto;
+    }
+
+    .ee-banner__content .ee-btn {
+        grid-area: media;
+        align-self: end;
+        min-width: 192px;
+        height: 44px;
+        margin-bottom: 40px;
+    }
+
+    .ee-banner__strip {
+        font-size: 12px;
+    }
+}
 
 
 

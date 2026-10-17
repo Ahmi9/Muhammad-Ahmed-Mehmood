@@ -11,7 +11,9 @@
     "sections": {
         "banner": {
             "type": "ee-banner",
-            "settings": {}
+            "settings": {
+                "background": "shopify://shop_images/Group_1000008197.png"
+            }
         }
     },
     "order": ["banner"]

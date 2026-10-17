@@ -48,7 +48,8 @@ function selectField(option) {
 }
 
 function renderOptions(popup, product) {
-    const fields = getOptions(product).map((option) => (/colou?r/i.test(option.name) ? colorField(option) : selectField(option)));
+    const options = getOptions(product).sort((a, b) => /colou?r/i.test(b.name) - /colou?r/i.test(a.name));
+    const fields = options.map((option) => (/colou?r/i.test(option.name) ? colorField(option) : selectField(option)));
     popup.querySelector('[data-ee-popup-options]').innerHTML = fields.join('');
 }
 

@@ -7,7 +7,9 @@
 
     {%- if card_product != blank -%}
         <button type="button" class="ee-card__open" aria-label="Quick view: {{ card_product.title | escape }}" data-ee-quick-view>
-            <!--svg here-->
+            <svg width="9" height="9" viewBox="0 0 9 9" aria-hidden="true">
+                <path d="M4.5 0v9M0 4.5h9" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
         </button>
     {%- endif -%}
 </div>

@@ -132,7 +132,7 @@ body:has(.ee-popup[open]) {
     display: -webkit-box;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
 }
 
 .ee-popup__description p {
@@ -141,9 +141,14 @@ body:has(.ee-popup[open]) {
 
 /* option fields */
 .ee-popup__field {
-    margin: 10px 0 0;
+    margin: 13px 0 0;
     padding: 0;
     border: 0;
+}
+
+/* first field sits closer to the description, like in figma */
+.ee-popup__field:first-child {
+    margin-top: 6px;
 }
 
 .ee-popup__label {
@@ -175,7 +180,7 @@ body:has(.ee-popup[open]) {
     display: flex;
     align-items: center;
     height: 40px;
-    padding-left: 14px;
+    padding-left: 10px;
     border-left: 4px solid var(--ee-swatch);
     font-size: 16px;
     transition: background-color 0.2s ease, color 0.2s ease;

@@ -16,9 +16,84 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "ee_banner_Ler3XC": {
+      "type": "ee-banner",
+      "name": "EE Banner",
+      "settings": {
+        "font": "jost_n4",
+        "brand": "TISSO VISON",
+        "tagline": "Find the ideal gift for your loved ones.",
+        "top_button_label": "CHOOSE GIFT",
+        "top_button_link": "",
+        "background": "shopify://shop_images/Group_1000008197.png",
+        "background_mobile": "shopify://shop_images/Frame.png",
+        "heading": "The Gift Guide",
+        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
+        "button_label": "SHOP NOW",
+        "text_mobile": "<p>Discover Joy: Your Ultimate Holiday Gift Destination</p>",
+        "button_link": "",
+        "strip_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+        "strip_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+      }
+    },
+    "ee_product_grid_FyUmN7": {
+      "type": "ee-product-grid",
+      "blocks": {
+        "product_xzepHf": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_hh8HQV": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_9fmzFH": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_tzJxTT": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_PWViJk": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "product_VyzjPa": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_xzepHf",
+        "product_hh8HQV",
+        "product_9fmzFH",
+        "product_tzJxTT",
+        "product_PWViJk",
+        "product_VyzjPa"
+      ],
+      "name": "EE Product grid",
+      "settings": {
+        "heading": "Tisso vison in the wild"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "ee_banner_Ler3XC",
+    "ee_product_grid_FyUmN7"
   ]
 }

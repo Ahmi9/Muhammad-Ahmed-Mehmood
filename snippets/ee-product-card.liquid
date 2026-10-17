@@ -1,0 +1,42 @@
+{%- comment -%}
+    card for the ee grid, takes card_product
+{%- endcomment -%}
+<div class="ee-card">
+    {%- if card_product.featured_image != blank -%}
+        {{ card_product.featured_image | image_url: width: 900 | image_tag: class: 'ee-card__image', loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 749px) 50vw, 33vw' }}
+    {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'ee-card__image' }}
+    {%- endif -%}
+
+    {%- if card_product != blank -%}
+        <button type="button" class="ee-card__open" aria-label="Quick view: {{ card_product.title | escape }}" data-ee-quick-view>
+            <svg width="9" height="9" viewBox="0 0 9 9" aria-hidden="true">
+                <path d="M4.5 0v9M0 4.5h9" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </button>
+
+        {%- comment -%}
+            only the fields the popup needs. product | json on a section setting
+            only gave the handle, so this is built by hand
+        {%- endcomment -%}
+        <script type="application/json" data-ee-product-data>
+            {
+                "title": {{ card_product.title | json }},
+                "options": {{ card_product.options | json }},
+                "variants": [
+                    {%- for variant in card_product.variants -%}
+                        {
+                            "id": {{ variant.id }},
+                            "title": {{ variant.title | json }},
+                            "available": {{ variant.available | json }},
+                            "options": {{ variant.options | json }}
+                        }{%- unless forloop.last -%},{%- endunless -%}
+                    {%- endfor -%}
+                ],
+                "price": {{ card_product.price | money | json }},
+                "description": {{ card_product.description | json }},
+                "image": {{ card_product.featured_image | image_url: width: 240 | json }}
+            }
+        </script>
+    {%- endif -%}
+</div>

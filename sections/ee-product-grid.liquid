@@ -1,0 +1,202 @@
+{{ 'ee-product-grid.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'ee-product-grid.js' | asset_url }}" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Lustria&display=swap">
+
+{%- # 6 product blocks, each "+" position is set per block in the editor -%}
+<section class="ee-grid">
+    {%- if section.settings.heading != blank -%}
+        <h2 class="ee-grid__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="ee-grid__list">
+        {%- for block in section.blocks -%}
+            {%- assign block_product = block.settings.product -%}
+            <div class="ee-grid__item" style="--ee-x: {{ block.settings.hotspot_x }}%; --ee-y: {{ block.settings.hotspot_y }}%;" {{ block.shopify_attributes }}>
+                {%- render 'ee-product-card', card_product: block_product -%}
+            </div>
+        {%- endfor -%}
+    </div>
+
+    {%- # one popup for the whole grid, js fills it with the clicked product -%}
+    <dialog class="ee-popup" aria-labelledby="EePopupTitle-{{ section.id }}" data-ee-popup>
+        <form method="dialog">
+            <button type="submit" class="ee-popup__close" aria-label="Close">
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                    <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+            </button>
+        </form>
+
+        <div class="ee-popup__top">
+            <img class="ee-popup__image" src="" alt="" width="120" height="140" data-ee-popup-image>
+            <div class="ee-popup__info">
+                <h3 class="ee-popup__title" id="EePopupTitle-{{ section.id }}" data-ee-popup-title>Tailored Jacket</h3>
+                <p class="ee-popup__price" data-ee-popup-price>980,00€</p>
+                <div class="ee-popup__description" data-ee-popup-description>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</div>
+            </div>
+        </div>
+
+        <form class="ee-popup__form" data-ee-popup-form>
+            <div data-ee-popup-options></div>
+
+            <button type="submit" class="ee-popup__submit">
+                <span>Add to cart</span>
+                {%- render 'ee-arrow' -%}
+            </button>
+            <p class="ee-popup__error" role="alert" data-ee-popup-error hidden></p>
+        </form>
+
+        {%- # gift product added with black / M, picked in the section settings -%}
+        {%- assign bonus_product = section.settings.bonus_product -%}
+        {%- if bonus_product != blank -%}
+            <script type="application/json" data-ee-bonus-product>
+                {
+                    "color": {{ section.settings.bonus_color | json }},
+                    "size": {{ section.settings.bonus_size | json }},
+                    "variants": [
+                        {%- for variant in bonus_product.variants -%}
+                            { "id": {{ variant.id }}, "available": {{ variant.available | json }}, "options": {{ variant.options | json }} }{%- unless forloop.last -%},{%- endunless -%}
+                        {%- endfor -%}
+                    ]
+                }
+            </script>
+        {%- endif -%}
+    </dialog>
+</section>
+
+
+
+
+
+{% schema %}
+{
+    "name": "EE Product grid",
+    "tag": "div",
+    "class": "ee-grid-section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Tisso vison in the wild"
+        },
+        {
+            "type": "header",
+            "content": "Auto-add product"
+        },
+        {
+            "type": "product",
+            "id": "bonus_product",
+            "label": "Product",
+            "info": "Added to the cart together with any variant that has the color and size below"
+        },
+        {
+            "type": "text",
+            "id": "bonus_color",
+            "label": "Bonus color",
+            "default": "Black"
+        },
+        {
+            "type": "text",
+            "id": "bonus_size",
+            "label": "Trigger size",
+            "default": "M"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "product",
+            "name": "Product",
+            "settings": [
+                {
+                    "type": "product",
+                    "id": "product",
+                    "label": "Product"
+                },
+                {
+                    "type": "header",
+                    "content": "\"+\" position (desktop)"
+                },
+                {
+                    "type": "range",
+                    "id": "hotspot_x",
+                    "label": "From left",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "default": 50
+                },
+                {
+                    "type": "range",
+                    "id": "hotspot_y",
+                    "label": "From top",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "default": 50
+                }
+            ]
+        }
+    ],
+    "max_blocks": 6,
+    "presets": [
+        {
+            "name": "EE Product grid",
+            "blocks": [
+                {
+                    "type": "product"
+                },
+                {
+                    "type": "product"
+                },
+                {
+                    "type": "product"
+                },
+                {
+                    "type": "product"
+                },
+                {
+                    "type": "product"
+                },
+                {
+                    "type": "product"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -62,6 +62,7 @@ function fillPopup(popup, data) {
     popup.querySelector('[data-ee-popup-price]').textContent = data.price;
     popup.querySelector('[data-ee-popup-description]').innerHTML = data.description || '';
     renderOptions(popup, data);
+    popup.productData = data;
 }
 
 document.addEventListener('click', (event) => {
@@ -154,3 +155,69 @@ document.addEventListener('keydown', (event) => {
         closeSelect(select, false);
     }
 });
+
+function findVariant(data, form) {
+    if (data.variants.length === 1) return data.variants[0];
+
+    const formData = new FormData(form);
+    return data.variants.find((variant) => data.options.every((name, index) => variant.options[index] === formData.get(name)));
+}
+
+function showError(element, message) {
+    element.textContent = message;
+    element.hidden = false;
+}
+
+function updateCartBubble(sections) {
+    const html = sections && sections['cart-icon-bubble'];
+    const bubble = document.getElementById('cart-icon-bubble');
+    if (!html || !bubble) return;
+
+    const fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('.shopify-section');
+    if (fresh) bubble;escapeHtml.innerHTML = fresh.innerHTML;
+}
+
+async function addToCart(items) {
+    const root = (window.Shopify && window.Shopify.routes && window.Shopify.routes.root) || '/';
+    const response = await fetch(`${root}cart/add.js`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ items, sections: 'cart-icon-bubble' }),
+    });
+
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.description || 'Could not add to cart, please try again.');
+    return result;
+}
+
+document.addEventListener('submit', async (event) => {
+    const form = event.target.closest('[data-ee-popup-form]');
+    if (!form) return;
+    event.preventDefault();
+
+    const popup = form.closest('[data-ee-popup]');
+    const data = popup.productData;
+    const error = form.querySelector('[data-ee-popup-error]');
+    const button = form.querySelector('.ee-popup__submit');
+    error.hidden = true;
+
+    const formData = new FormData(form);
+    const missing = data.variants.length > 1 && data.options.find((name) => !formData.get(name));
+    if (missing) return showError(error, `Please choose your ${missing.toLowerCase()}.`);
+    
+    const variant = findVariant(data, form);
+    if (!variant || !variant.available) return showError(error, 'This combination is sold out.');
+
+    const items = [{ id: variant.id, quantity: 1 }];
+
+    button.disabled = true;
+    try {
+        const result = await addToCart(items);
+        updateCartBubble(result.sections);
+        popup.close();
+    } catch (err) {
+        showError(error, err.message);
+    } finally {
+        button.disabled = false;
+    }
+})

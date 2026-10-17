@@ -2,7 +2,7 @@
 <script src="{{ 'ee-product-grid.js' | asset_url }}" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lustria&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Lustria&display=swap">
 
 <section class="ee-grid">
     {%- if section.settings.heading != blank -%}
@@ -17,6 +17,58 @@
             </div>
         {%- endfor -%}
     </div>
+    <dialog class="ee-popup" aria-labelledby="EePopupTitle-{{ section.id }}" data-ee-popup open>
+        <form method="dialog">
+            <button type="submit" class="ee-popup__close" aria-label="Close">
+                <!-- svg here -->
+            </button>
+        </form>
+
+        <div class="ee-popup__top">
+            <img class="ee-popup__image" src="" alt="" width="120" height="140" data-ee-popup-image>
+            <div class="ee-popup__info">
+                <h3 class="ee-popup__title" id="EePopupTitle-{{ section.id }}" data-ee-popup-title>Tailored Jacket</h3>
+                <p class="ee-popup__price" data-ee-popup-price>980,00€</p>
+                <div class="ee-popup__description" data-ee-popup-description>This one-piece swimsuit is crated from jersey featuring an allover micro Monogram motif in relief.</div>
+            </div>
+        </div>
+
+        <form class="ee-popup__form" data-ee-popup-form>
+            <div data-ee-popup-options>
+                <fieldset class="ee-popup__field">
+                    <legend class="ee-popup_label">Color</legend>
+                    <div class="ee-colors">
+                        <label class="ee-color">
+                            <input type="radio" class="ee-color__input" name="Color" value="White">
+                            <span class="ee-color__name" style="--ee-swatch: #fff;">White</span>
+                        </label>
+                        <label class="ee-color">
+                            <input type="radio" class="ee-color__input" name="Color" value="Black" checked>
+                            <span class="ee-color__name" style="--ee-swatch: #000">Black</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="ee-popup__field">
+                    <span class="ee-popup__label">Size</span>
+                    <div class="ee-select">
+                        <button type="button" class="ee-select__button" aria-haspopup="listbox" aria-expanded="false">
+                            <span class="ee-select__value">Choose your size</span>
+                            <span class="ee-select__icon">
+                                <!-- svg here -->
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="ee-popup__submit">
+                <span>Add to cart</span>
+                {%- render 'ee-arrow' -%}
+            </button>
+            <p class="ee-popup__error" role="alert" data-ee-popup-error hidden></p>
+        </form>
+    </dialog>
 </section>
 
 

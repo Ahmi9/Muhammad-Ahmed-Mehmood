@@ -156,6 +156,20 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+function getBonusVariant(popup, variant) {
+    const element = popup.querySelector('[data-ee-bonus-product]');
+    if (!element) return null;
+
+    const bonus = JSON.parse(element.textContent);
+    const values = variant.options.map((value) => value.toLowerCase());
+    const isTrigger = [bonus.color, bonus.size].every((value) => values.includes(String(value).toLowerCase()));
+    if (!isTrigger) return null;
+
+    const available = bonus.variants.filter((item) => item.available && item.id !== variant.id);
+    const sameOptions = available.find((item) => item.options.every((value) => values.includes(value.toLowerCase())));
+    return sameOptions || available[0] || null;
+}
+
 function findVariant(data, form) {
     if (data.variants.length === 1) return data.variants[0];
 
@@ -209,6 +223,8 @@ document.addEventListener('submit', async (event) => {
     if (!variant || !variant.available) return showError(error, 'This combination is sold out.');
 
     const items = [{ id: variant.id, quantity: 1 }];
+    const bonus = getBonusVariant(popup, variant);
+    if (bonus) items.push({ id: bonus.id, quantity: 1 });
 
     button.disabled = true;
     try {
@@ -220,4 +236,4 @@ document.addEventListener('submit', async (event) => {
     } finally {
         button.disabled = false;
     }
-})
+});

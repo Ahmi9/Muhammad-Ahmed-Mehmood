@@ -45,6 +45,21 @@
             </button>
             <p class="ee-popup__error" role="alert" data-ee-popup-error hidden></p>
         </form>
+
+        {%- assign bonus_product = section.settings.bonus_product -%}
+        {%- if bonus_product != blank -%}
+            <script type="application/json" data-ee-bonus-product>
+                {
+                    "color": {{ section.settings.bonus_color | json }},
+                    "size": {{ section.settings.bonus_size | json }},
+                    "variants": [
+                        {%- for variant in bonus_product.variants -%}
+                            { "id": {{ variant.id }}, "available": {{ variant.available | json }}, "options": {{ variant.options | json }} }{%- unless forloop.last -%},{%- endunless -%}
+                        {%- endfor -%}
+                    ]
+                }
+            </script>
+        {%- endif -%}
     </dialog>
 </section>
 
@@ -63,6 +78,28 @@
             "id": "heading",
             "label": "Heading",
             "default": "Tisso vison in the wild"
+        },
+        {
+            "type": "header",
+            "content": "Auto-add product"
+        },
+        {
+            "type": "product",
+            "id": "bonus_product",
+            "label": "Product",
+            "info": "Added to the cart together with any variant that has the color and size below"
+        },
+        {
+            "type": "text",
+            "id": "bonus_color",
+            "label": "Bonus color",
+            "default": "Black"
+        },
+        {
+            "type": "text",
+            "id": "bonus_size",
+            "label": "Trigger size",
+            "default": "M"
         }
     ],
     "blocks": [

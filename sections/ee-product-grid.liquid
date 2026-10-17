@@ -17,10 +17,13 @@
             </div>
         {%- endfor -%}
     </div>
+    
     <dialog class="ee-popup" aria-labelledby="EePopupTitle-{{ section.id }}" data-ee-popup open>
         <form method="dialog">
             <button type="submit" class="ee-popup__close" aria-label="Close">
-                <!-- svg here -->
+                <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+                    <path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
             </button>
         </form>
 
@@ -29,14 +32,14 @@
             <div class="ee-popup__info">
                 <h3 class="ee-popup__title" id="EePopupTitle-{{ section.id }}" data-ee-popup-title>Tailored Jacket</h3>
                 <p class="ee-popup__price" data-ee-popup-price>980,00€</p>
-                <div class="ee-popup__description" data-ee-popup-description>This one-piece swimsuit is crated from jersey featuring an allover micro Monogram motif in relief.</div>
+                <div class="ee-popup__description" data-ee-popup-description>This one-piece swimsuit is crafted from jersey featuring an allover micro Monogram motif in relief.</div>
             </div>
         </div>
 
         <form class="ee-popup__form" data-ee-popup-form>
             <div data-ee-popup-options>
                 <fieldset class="ee-popup__field">
-                    <legend class="ee-popup_label">Color</legend>
+                    <legend class="ee-popup__label">Color</legend>
                     <div class="ee-colors">
                         <label class="ee-color">
                             <input type="radio" class="ee-color__input" name="Color" value="White">
@@ -44,7 +47,7 @@
                         </label>
                         <label class="ee-color">
                             <input type="radio" class="ee-color__input" name="Color" value="Black" checked>
-                            <span class="ee-color__name" style="--ee-swatch: #000">Black</span>
+                            <span class="ee-color__name" style="--ee-swatch: #000;">Black</span>
                         </label>
                     </div>
                 </fieldset>
@@ -55,7 +58,9 @@
                         <button type="button" class="ee-select__button" aria-haspopup="listbox" aria-expanded="false">
                             <span class="ee-select__value">Choose your size</span>
                             <span class="ee-select__icon">
-                                <!-- svg here -->
+                                <svg width="14" height="8" viewBox="0 0 14 8" aria-hidden="true">
+                                    <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                </svg>
                             </span>
                         </button>
                     </div>

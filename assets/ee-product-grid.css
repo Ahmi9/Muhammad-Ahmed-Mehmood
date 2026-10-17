@@ -258,7 +258,7 @@
     .ee-grid__heading {
         margin-bottom: 20px;
         font-size: 24px;
-        align-items: center;
+        text-align: center;
     }
 
     .ee-grid__list {

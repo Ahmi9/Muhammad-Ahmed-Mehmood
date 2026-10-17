@@ -37,7 +37,9 @@ function selectField(option) {
             <button type="button" class="ee-select__button" aria-haspopup="listbox" aria-expanded="false">
                 <span class="ee-select__value">Choose your ${name.toLowerCase()}</span>
                 <span class="ee-select__icon">
-                    <svg></svg>
+                    <svg width="14" height="8" viewBox="0 0 14 8" aria-hidden="true">
+                        <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
                 </span>
             </button>
             <ul class="ee-select__list" role="listbox" aria-label="${name}" hidden>${items}</ul>
@@ -53,12 +55,12 @@ function renderOptions(popup, product) {
 function fillPopup(popup, data) {
     const image = popup.querySelector('[data-ee-popup-image]');
     image.src = data.image || '';
-    image.alt = data.product.title;
+    image.alt = data.title;
 
-    popup.querySelector('[data-ee-popup-title]').textContent = data.product.title;
+    popup.querySelector('[data-ee-popup-title]').textContent = data.title;
     popup.querySelector('[data-ee-popup-price]').textContent = data.price;
     popup.querySelector('[data-ee-popup-description]').innerHTML = data.description || '';
-    renderOptions(popup, data.product);
+    renderOptions(popup, data);
 }
 
 document.addEventListener('click', (event) => {

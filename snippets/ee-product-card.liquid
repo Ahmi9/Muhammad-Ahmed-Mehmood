@@ -14,7 +14,18 @@
 
         <script type="application/json" data-ee-product-data>
             {
-                "product": {{ card_product | json }},
+                "title": {{ card_product.title | json }},
+                "options": {{ card_product.options | json }},
+                "variants": [
+                    {%- for variant in card_product.variants -%}
+                        {
+                            "id": {{ variant.id }},
+                            "title": {{ variant.title | json }},
+                            "available": {{ variant.available | json }},
+                            "options": {{ variant.options | json }}
+                        }{%- unless forloop.last -%},{%- endunless -%}
+                    {%- endfor -%}
+                ],
                 "price": {{ card_product.price | money | json }},
                 "description": {{ card_product.description | json }},
                 "image": {{ card_product.featured_image | image_url: width: 240 | json }}

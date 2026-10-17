@@ -78,6 +78,11 @@
     background: rgba(0, 0, 0, 0.4);
 }
 
+/* stop the page behind the popup from scrolling */
+body:has(.ee-popup[open]) {
+    overflow: hidden;
+}
+
 .ee-popup__close {
     position: absolute;
     top: 13px;

@@ -1,3 +1,6 @@
+{%- comment -%}
+    card for the ee grid, takes card_product
+{%- endcomment -%}
 <div class="ee-card">
     {%- if card_product.featured_image != blank -%}
         {{ card_product.featured_image | image_url: width: 900 | image_tag: class: 'ee-card__image', loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 749px) 50vw, 33vw' }}
@@ -12,6 +15,10 @@
             </svg>
         </button>
 
+        {%- comment -%}
+            only the fields the popup needs. product | json on a section setting
+            only gave the handle, so this is built by hand
+        {%- endcomment -%}
         <script type="application/json" data-ee-product-data>
             {
                 "title": {{ card_product.title | json }},

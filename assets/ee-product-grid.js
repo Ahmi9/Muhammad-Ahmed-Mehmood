@@ -1,5 +1,7 @@
+// product data goes into html strings below, so escape it first
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => `&#${char.charCodeAt(0)};`);
 
+// unique values per option, e.g. size: XS, S, M, L
 function getOptions(product) {
     if (product.variants.length === 1 && product.variants[0].title === 'Default Title') return [];
 
@@ -47,6 +49,7 @@ function selectField(option) {
     </div>`;
 }
 
+// color as buttons, other options as the dropdown. color first like in figma
 function renderOptions(popup, product) {
     const options = getOptions(product).sort((a, b) => /colou?r/i.test(b.name) - /colou?r/i.test(a.name));
     const fields = options.map((option) => (/colou?r/i.test(option.name) ? colorField(option) : selectField(option)));
@@ -65,6 +68,7 @@ function fillPopup(popup, data) {
     popup.productData = data;
 }
 
+// + button on a card opens the popup with that product
 document.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-ee-quick-view]');
     if (!trigger) return;
@@ -78,6 +82,7 @@ document.addEventListener('click', (event) => {
     popup.showModal();
 });
 
+// clicking the backdrop also targets the dialog, so check if the click was outside the box
 document.addEventListener('click', (event) => {
     const popup = event.target.closest('[data-ee-popup]');
     if (!popup || event.target !== popup) return;
@@ -87,6 +92,7 @@ document.addEventListener('click', (event) => {
     if (isOutside) popup.close();
 });
 
+// custom dropdown for sizes, follows the aria listbox pattern
 function openSelect(select) {
     select.querySelector('.ee-select__button').setAttribute('aria-expanded', 'true');
     const list = select.querySelector('.ee-select__list');
@@ -128,6 +134,7 @@ document.addEventListener('click', (event) => {
     }
 });
 
+// keyboard support for the size dropdown
 document.addEventListener('keydown', (event) => {
     const select = event.target.closest('[data-ee-select]');
     if (!select) return;
@@ -156,6 +163,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// gift variant if the added one is black + M (set in section settings), otherwise null
 function getBonusVariant(popup, variant) {
     const element = popup.querySelector('[data-ee-bonus-product]');
     if (!element) return null;
@@ -170,6 +178,7 @@ function getBonusVariant(popup, variant) {
     return sameOptions || available[0] || null;
 }
 
+// match by option name, the csv has size first and color second
 function findVariant(data, form) {
     if (data.variants.length === 1) return data.variants[0];
 
@@ -182,6 +191,7 @@ function showError(element, message) {
     element.hidden = false;
 }
 
+// shopify sends the new cart icon html back with add.js, just swap it in
 function updateCartBubble(sections) {
     const html = sections && sections['cart-icon-bubble'];
     const bubble = document.getElementById('cart-icon-bubble');
@@ -204,6 +214,7 @@ async function addToCart(items) {
     return result;
 }
 
+// add to cart, the gift jacket goes in the same request
 document.addEventListener('submit', async (event) => {
     const form = event.target.closest('[data-ee-popup-form]');
     if (!form) return;

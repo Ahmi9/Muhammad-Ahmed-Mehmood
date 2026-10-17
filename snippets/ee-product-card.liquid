@@ -16,6 +16,7 @@
             {
                 "product": {{ card_product | json }},
                 "price": {{ card_product.price | money | json }},
+                "description": {{ card_product.description | json }},
                 "image": {{ card_product.featured_image | image_url: width: 240 | json }}
             }
         </script>

@@ -5,7 +5,7 @@ function fillPopup(popup, data) {
 
     popup.querySelector('[data-ee-popup-title]').textContent = data.product.title;
     popup.querySelector('[data-ee-popup-price]').textContent = data.price;
-    popup.querySelector('[data-ee-popup-description]').innerHTML = data.product.description;
+    popup.querySelector('[data-ee-popup-description]').innerHTML = data.description || '';
 }
 
 document.addEventListener('click', (event) => {

@@ -1,20 +1,45 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
     "sections": {
         "banner": {
             "type": "ee-banner",
             "settings": {
-                "background": "shopify://shop_images/Group_1000008197.png"
+                "background": "shopify://shop_images/Group_1000008197.png",
+                "background_mobile": "shopify://shop_images/Frame.png"
             }
+        },
+        "product_grid": {
+            "type": "ee-product-grid",
+            "settings": {
+                "heading": "Tisso vison in the wild"
+            },
+            "blocks": {
+                "product_1": {
+                    "type": "product",
+                    "settings": { "product": "black-leather-bag" }
+                },
+                "product_2": {
+                    "type": "product",
+                    "settings": { "product": "blue-silk-tuxedo" }
+                },
+                "product_3": {
+                    "type": "product",
+                    "settings": { "product": "chequered-red-shirt" }
+                },
+                "product_4": {
+                    "type": "product",
+                    "settings": { "product": "classic-leather-jacket" }
+                },
+                "product_5": {
+                    "type": "product",
+                    "settings": { "product": "classic-varsity-top" }
+                },
+                "product_6": {
+                    "type": "product",
+                    "settings": { "product": "dark-denim-top" }
+                }
+            },
+            "block_order": ["product_1", "product_2", "product_3", "product_4", "product_5", "product_6"]
         }
     },
-    "order": ["banner"]
+    "order": ["banner", "product_grid"]
 }

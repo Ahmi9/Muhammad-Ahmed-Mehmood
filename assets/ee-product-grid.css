@@ -71,6 +71,7 @@
     color: #000;
     font-family: "Jost", sans-serif;
     letter-spacing: 0;
+    overflow: visible;
 }
 
 .ee-popup::backdrop {
@@ -123,6 +124,10 @@
     font-weight: 300;
     line-height: 1.1;
     letter-spacing: -0.01em;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
 }
 
 .ee-popup__description p {
@@ -216,6 +221,49 @@
     width: 54px;
     border-left: 0.5px solid #000;
 }
+
+.ee-select__icon svg {
+    transition: transform 0.2 ease;
+}
+
+.ee-select__button[aria-expanded='true'] .ee-select__icon svg {
+    transform: rotate(180deg);
+}
+
+.ee-select__list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    max-height: 160px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    border: 0.5px solid #000;
+    border-top: 0;
+    background: #fff;
+    list-style: none;
+}
+
+.ee-select__option {
+    padding: 10px 13px;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.ee-select__option:hover, .ee-select__option:focus {
+    background: #f5f5f5;
+    outline: none;
+}
+
+.ee-select__option[aria-selected="true"] {
+    background: #000;
+    color: #fff;
+}
+
+
 
 /* add to cart */
 .ee-popup__submit {

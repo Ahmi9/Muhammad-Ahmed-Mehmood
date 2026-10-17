@@ -174,7 +174,7 @@ function updateCartBubble(sections) {
     if (!html || !bubble) return;
 
     const fresh = new DOMParser().parseFromString(html, 'text/html').querySelector('.shopify-section');
-    if (fresh) bubble.escapeHtml.innerHTML = fresh.innerHTML;
+    if (fresh) bubble.innerHTML = fresh.innerHTML;
 }
 
 async function addToCart(items) {

@@ -1,0 +1,144 @@
+/* Product grid */
+.ee-grid {
+    max-width: 1440px;
+    margin: 90px auto 50px;
+    padding: 0 50px;
+    color: #000;
+    letter-spacing: 0;
+}
+
+.ee-grid__heading {
+    margin: 0 0 30px;
+    font-family: "Lustria", serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0;
+    color: inherit;
+}
+
+.ee-grid__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* card */
+.ee-card {
+    position: relative;
+}
+
+.ee-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 433 / 444;
+    object-fit: cover;
+}
+
+.ee-card__open {
+    position: absolute;
+    top: var(--ee-y, 50%);
+    left: var(--ee-x, 50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border: 1.5px solid #000;
+    border-radius: 50%;
+    background: rgba(248, 248, 248, 0.9);
+    color: #000;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.ee-card__open:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

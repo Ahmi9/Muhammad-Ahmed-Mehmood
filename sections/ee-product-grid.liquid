@@ -1,5 +1,8 @@
 {{ 'ee-product-grid.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'ee-product-grid.js' | asset_url }}" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lustria&display=swap">
 
 <section class="ee-grid">
     {%- if section.settings.heading != blank -%}
@@ -10,11 +13,7 @@
         {%- for block in section.blocks -%}
             {%- assign block_product = block.settings.product -%}
             <div class="ee-grid__item" {{ block.shopify_attributes }}>
-                {%- if block_product != blank -%}
-                    {{ block_product.title }}
-                {%- else -%}
-                    Choose a product
-                {%- endif -%}
+                {%- render 'ee-product-card', card_product: block_product -%}
             </div>
         {%- endfor -%}
     </div>

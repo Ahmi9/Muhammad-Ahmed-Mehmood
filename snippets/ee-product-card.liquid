@@ -1,0 +1,13 @@
+<div class="ee-card">
+    {%- if card_product.featured_image != blank -%}
+        {{ card_product.featured_image | image_url: width: 900 | image_tag: class: 'ee-card__image', loading: 'lazy', widths: '360, 540, 720, 900', sizes: '(max-width: 749px) 50vw, 33vw' }}
+    {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag: 'ee-card__image' }}
+    {%- endif -%}
+
+    {%- if card_product != blank -%}
+        <button type="button" class="ee-card__open" aria-label="Quick view: {{ card_product.title | escape }}" data-ee-quick-view>
+            <!--svg here-->
+        </button>
+    {%- endif -%}
+</div>

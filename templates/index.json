@@ -9,97 +9,44 @@
  */
 {
   "sections": {
-    "ee_banner_azMGXH": {
-      "type": "ee-banner",
-      "name": "EE Banner",
-      "settings": {
-        "font": "jost_n4",
-        "brand": "TISSO VISON",
-        "tagline": "Find the ideal gift for your loved ones.",
-        "top_button_label": "CHOOSE GIFT",
-        "top_button_link": "",
-        "background": "shopify://shop_images/Group_1000008197.png",
-        "background_mobile": "shopify://shop_images/Frame.png",
-        "heading": "The Gift Guide",
-        "text": "<p>Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.</p>",
-        "button_label": "SHOP NOW",
-        "text_mobile": "<p>Discover Joy: Your Ultimate Holiday Gift Destination</p>",
-        "button_link": "",
-        "strip_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
-        "strip_text_mobile": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
-      }
-    },
-    "ee_product_grid_bTbnyG": {
-      "type": "ee-product-grid",
+    "rich_text_J8BJEV": {
+      "type": "rich-text",
       "blocks": {
-        "product_RGPfzV": {
-          "type": "product",
+        "heading_fH4etc": {
+          "type": "heading",
           "settings": {
-            "product": "black-leather-bag",
-            "hotspot_x": 62,
-            "hotspot_y": 56
+            "heading": "Open the Gift Guide page from nav",
+            "heading_size": "h1"
           }
         },
-        "product_X4Tr74": {
-          "type": "product",
+        "button_hVmR4L": {
+          "type": "button",
           "settings": {
-            "product": "blue-silk-tuxedo",
-            "hotspot_x": 84,
-            "hotspot_y": 52
-          }
-        },
-        "product_PkC4Dt": {
-          "type": "product",
-          "settings": {
-            "product": "chequered-red-shirt",
-            "hotspot_x": 62,
-            "hotspot_y": 21
-          }
-        },
-        "product_zX3MVU": {
-          "type": "product",
-          "settings": {
-            "product": "classic-leather-jacket",
-            "hotspot_x": 72,
-            "hotspot_y": 19
-          }
-        },
-        "product_PhfX7Q": {
-          "type": "product",
-          "settings": {
-            "product": "classic-varsity-top",
-            "hotspot_x": 52,
-            "hotspot_y": 26
-          }
-        },
-        "product_CeJTJJ": {
-          "type": "product",
-          "settings": {
-            "product": "dark-denim-top",
-            "hotspot_x": 76,
-            "hotspot_y": 40
+            "button_label": "Click to go there",
+            "button_link": "shopify://pages/gift-guide",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "product_RGPfzV",
-        "product_X4Tr74",
-        "product_PkC4Dt",
-        "product_zX3MVU",
-        "product_PhfX7Q",
-        "product_CeJTJJ"
+        "heading_fH4etc",
+        "button_hVmR4L"
       ],
-      "name": "EE Product grid",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "heading": "Tisso vison in the wild",
-        "bonus_product": "dark-winter-jacket",
-        "bonus_color": "Black",
-        "bonus_size": "M"
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "ee_banner_azMGXH",
-    "ee_product_grid_bTbnyG"
+    "rich_text_J8BJEV"
   ]
 }

@@ -15,27 +15,27 @@
             "blocks": {
                 "product_1": {
                     "type": "product",
-                    "settings": { "product": "black-leather-bag" }
+                    "settings": { "product": "black-leather-bag", "hotspot_x": 62, "hotspot_y": 56 }
                 },
                 "product_2": {
                     "type": "product",
-                    "settings": { "product": "blue-silk-tuxedo" }
+                    "settings": { "product": "blue-silk-tuxedo", "hotspot_x": 84, "hotspot_y": 52 }
                 },
                 "product_3": {
                     "type": "product",
-                    "settings": { "product": "chequered-red-shirt" }
+                    "settings": { "product": "chequered-red-shirt", "hotspot_x": 62, "hotspot_y": 21 }
                 },
                 "product_4": {
                     "type": "product",
-                    "settings": { "product": "classic-leather-jacket" }
+                    "settings": { "product": "classic-leather-jacket", "hotspot_x": 72, "hotspot_y": 19 }
                 },
                 "product_5": {
                     "type": "product",
-                    "settings": { "product": "classic-varsity-top" }
+                    "settings": { "product": "classic-varsity-top", "hotspot_x": 52, "hotspot_y": 26 }
                 },
                 "product_6": {
                     "type": "product",
-                    "settings": { "product": "dark-denim-top" }
+                    "settings": { "product": "dark-denim-top", "hotspot_x": 76, "hotspot_y": 40 }
                 }
             },
             "block_order": ["product_1", "product_2", "product_3", "product_4", "product_5", "product_6"]

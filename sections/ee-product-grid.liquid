@@ -12,7 +12,7 @@
     <div class="ee-grid__list">
         {%- for block in section.blocks -%}
             {%- assign block_product = block.settings.product -%}
-            <div class="ee-grid__item" {{ block.shopify_attributes }}>
+            <div class="ee-grid__item" style="--ee-x: {{ block.settings.hotspot_x }}%; --ee-y: {{ block.settings.hotspot_y }}%;" {{ block.shopify_attributes }}>
                 {%- render 'ee-product-card', card_product: block_product -%}
             </div>
         {%- endfor -%}
@@ -45,6 +45,30 @@
                     "type": "product",
                     "id": "product",
                     "label": "Product"
+                },
+                {
+                    "type": "header",
+                    "content": "\"+\" position (desktop)"
+                },
+                {
+                    "type": "range",
+                    "id": "hotspot_x",
+                    "label": "From left",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "default": 50
+                },
+                {
+                    "type": "range",
+                    "id": "hotspot_y",
+                    "label": "From top",
+                    "min": 0,
+                    "max": 100,
+                    "step": 1,
+                    "unit": "%",
+                    "default": 50
                 }
             ]
         }

@@ -11,5 +11,13 @@
                 <path d="M4.5 0v9M0 4.5h9" stroke="currentColor" stroke-width="1.5"/>
             </svg>
         </button>
+
+        <script type="application/json" data-ee-product-data>
+            {
+                "product": {{ card_product | json }},
+                "price": {{ card_product.price | money | json }},
+                "image": {{ card_product.featured_image | image_url: width: 240 | json }}
+            }
+        </script>
     {%- endif -%}
 </div>
